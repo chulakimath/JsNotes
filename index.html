@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes bgr {
+            0%{
+                background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
+            }
+            25%{
+                background-image: linear-gradient(90deg,rgb(150, 190, 0),rgb(10, 240, 220));
+            }
+            50%{
+                background-image: linear-gradient(90deg,rgb(170, 200, 0),rgb(20, 255, 200));
+
+            }
+            75%{
+                background-image: linear-gradient(90deg,rgb(150, 190, 0),rgb(10, 240, 220));
+            }
+            100%{
+                background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
+            }
+            
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-position: center;
+            background-size: cover;
+            animation: bgr 25s infinite ease-in-out;
+
+        }
+        .main{
+            display: grid;
+            place-items: center;
+            margin-top: 2%;
+        }
+        .head{
+            margin-top: 3%;
+            display: grid;
+            place-items: center;
+        }
+        .head>p{
+            font-size: 2em;
+            font-weight: bolder;
+            color: blueviolet;
+            text-shadow: 1px 1px 10px rgb(255, 255, 255);
+        }
+        #topic{
+            padding: 1% 0%;
+        }
+        #key{
+            border: none;
+            border-radius: 5px;
+            line-height: 8vh;
+            width: 75vw;
+            text-align: center;
+
+        }
+        #key::placeholder{
+            color:black;
+            font-weight: bolder;
+            text-align: center;
+        }
+        #key:focus{
+            outline: none;
+            background-color: rgb(195, 238, 232);
+        }
+        #value{
+            border: none;
+            border-radius: 5px;
+            width: 75vw;
+            line-height: 10vh;
+            text-align: center;
+        }
+        #value::placeholder{
+            color:black;
+            font-weight: bolder;
+            text-align: center;
+        }
+        #value:focus{
+            outline: none;
+            background-color: rgb(195, 238, 232);
+        }
+        .card{
+            background-color: azure;
+            width: fit-content;
+            padding: 5%;
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1%;
+            border-radius: 5%;
+        }
+
+        .notesAll{
+            display: flex;
+            padding:5%;
+            gap: 2%;
+            flex-wrap: wrap;
+        }
+        #headding{
+            font-size: 1.5em;
+            font-weight: 700;
+            color:blueviolet;
+            align-self: flex-start;
+        }
+        #tail{
+            font-size: 1.1em;
+            color: brown;
+        }
+        #addNote{
+            margin-top: 5%;
+            line-height: 170%;
+            border: none;
+            padding: 2%;
+            width: 150px;
+            font-weight: bolder;
+            font-size: 1.1em;
+            border-radius: 5px;
+            background-image: linear-gradient(90deg,rgb(0, 217, 255),rgb(123, 255, 0));
+            border: 1px solid red;
+
+        }
+        #getNote{
+            margin-top: 5%;
+            line-height: 170%;
+            border: none;
+            padding: 2%;
+            width: 150px;
+            font-weight: bolder;
+            font-size: 1.1em;
+            border-radius: 5px;
+            background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <p>Notes Application</p>
+    </div>
+    <div class="main">
+        <div id="topic">
+            <input type="text" id="key" placeholder="Enter The Topic">
+        </div>
+        <div id="content">
+            <textarea id="value" placeholder="Enter the Details"></textarea>
+        </div>
+        <div>
+            <button id="addNote">Add Notes</button>
+            &nbsp;
+            &nbsp;
+            <button id="getNote">Get Notes</button>
+        </div>
+    </div>
+    <div class="notesAll">
+        <div class="card">
+           <div id="headding">
+            Topic
+           </div>
+           <div id="tail">
+            Details
+           </div>
+        </div>
+    
+ 
+    </div>
+    <script src="A04.js"></script>
+</body>
+
+</html>
