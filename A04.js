@@ -53,5 +53,5 @@ document.querySelector(".notesAll").addEventListener('click', (details) => {
 function alertTimer(){
     setTimeout(()=>{
         document.getElementById('alert').hidden=true;
-    },5000)
+    },5100)
 }
