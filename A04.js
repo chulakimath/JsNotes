@@ -31,9 +31,17 @@ function notesDisplay(notes) {
        </div>
        <div id="tail">
         ${val}
+        <button id="deleteNote" value=${key}>⛔</button>
        </div>
     </div>
        `
     }
     divx.innerHTML=tg;
 }
+document.querySelector(".notesAll").addEventListener('click',(details)=>{
+    let deletKey=details.target.value;
+    if(deletKey!=undefined){
+        localStorage.removeItem(deletKey);
+    }
+    notesDisplay(localStorage);
+})
