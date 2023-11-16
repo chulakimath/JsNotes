@@ -7,55 +7,66 @@
     <title>Document</title>
     <style>
         @keyframes bgr {
-            0%{
-                background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
+            0% {
+                background-color: antiquewhite;
             }
-            25%{
-                background-image: linear-gradient(90deg,rgb(150, 190, 0),rgb(10, 240, 220));
+
+            25% {
+                background-color: aqua;
             }
-            50%{
-                background-image: linear-gradient(90deg,rgb(170, 200, 0),rgb(20, 255, 200));
+
+            50% {
+                background-color:antiquewhite;
+            }
+
+            75% {
+                background-color: aqua;
 
             }
-            75%{
-                background-image: linear-gradient(90deg,rgb(150, 190, 0),rgb(10, 240, 220));
+
+            100% {
+                background-color: antiquewhite;
             }
-            100%{
-                background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
-            }
-            
+
         }
-        *{
+
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body{
+
+        body {
             background-position: center;
             background-size: cover;
             animation: bgr 25s infinite ease-in-out;
-
         }
-        .main{
+
+        .main {
             display: grid;
             place-items: center;
             margin-top: 2%;
         }
-        .head{
+
+        .head {
             margin-top: 3%;
             display: grid;
             place-items: center;
         }
-        .head>p{
+
+        .head>p {
             font-size: 2em;
             font-weight: bolder;
             color: blueviolet;
-            text-shadow: 1px 1px 10px rgb(255, 255, 255);
+            text-shadow: 1px 1px 10px yellow;
         }
-        #topic{
+
+        #topic {
             padding: 1% 0%;
         }
-        #key{
+
+        #key {
             border: none;
             border-radius: 5px;
             line-height: 8vh;
@@ -63,61 +74,80 @@
             text-align: center;
 
         }
-        #key::placeholder{
-            color:black;
+
+        #key::placeholder {
+            color: black;
             font-weight: bolder;
             text-align: center;
         }
-        #key:focus{
+
+        #key:focus {
             outline: none;
             background-color: rgb(195, 238, 232);
         }
-        #value{
+
+        #value {
             border: none;
             border-radius: 5px;
             width: 75vw;
-            line-height: 10vh;
+            /* line-height: 10vh; */
             text-align: center;
         }
-        #value::placeholder{
-            color:black;
+
+        #value::placeholder {
+            color: black;
             font-weight: bolder;
             text-align: center;
         }
-        #value:focus{
+
+        #value:focus {
             outline: none;
             background-color: rgb(195, 238, 232);
         }
-        .card{
+
+        .card {
+            position: relative;
             background-color: azure;
             width: fit-content;
             padding: 5%;
             display: flex;
             flex-direction: column;
-            gap:10px;
+            gap: 10px;
             align-items: center;
             justify-content: center;
             margin-bottom: 1%;
-            border-radius: 5%;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        .notesAll{
+        #deleteNote {
+            position: absolute;
+            left: 0%;
+            top: 0;
+            border: none;
+            background-color: black;
+        }
+
+        .notesAll {
             display: flex;
-            padding:5%;
+            padding: 5%;
             gap: 2%;
             flex-wrap: wrap;
         }
-        #headding{
+
+        #headding {
             font-size: 1.5em;
             font-weight: 700;
-            color:blueviolet;
+            color: blueviolet;
             align-self: flex-start;
         }
-        #tail{
+
+        #tail {
             font-size: 1.1em;
             color: brown;
         }
-        #addNote{
+
+        #addNote {
             margin-top: 5%;
             line-height: 170%;
             border: none;
@@ -126,11 +156,12 @@
             font-weight: bolder;
             font-size: 1.1em;
             border-radius: 5px;
-            background-image: linear-gradient(90deg,rgb(0, 217, 255),rgb(123, 255, 0));
+            background-image: linear-gradient(0deg,aqua,antiquewhite);
             border: 1px solid red;
 
         }
-        #getNote{
+
+        #getNote {
             margin-top: 5%;
             line-height: 170%;
             border: none;
@@ -139,7 +170,8 @@
             font-weight: bolder;
             font-size: 1.1em;
             border-radius: 5px;
-            background-image: linear-gradient(90deg,rgb(123, 255, 0),rgb(0, 217, 255));
+            background-image: linear-gradient(180deg,aqua,antiquewhite);
+
             border: 1px solid red;
         }
     </style>
@@ -154,7 +186,7 @@
             <input type="text" id="key" placeholder="Enter The Topic">
         </div>
         <div id="content">
-            <textarea id="value" placeholder="Enter the Details"></textarea>
+            <textarea id="value" placeholder="Enter the Details" rows="8"></textarea>
         </div>
         <div>
             <button id="addNote">Add Notes</button>
@@ -165,15 +197,15 @@
     </div>
     <div class="notesAll">
         <div class="card">
-           <div id="headding">
-            Topic
-           </div>
-           <div id="tail">
-            Details
-           </div>
+            <div id="headding">
+                Topic
+            </div>
+            <div id="tail">
+                Details
+            </div>
+            <button id="deleteNote" value="x">⛔</button>
         </div>
-    
- 
+
     </div>
     <script src="A04.js"></script>
 </body>
