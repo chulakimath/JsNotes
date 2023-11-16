@@ -1,4 +1,3 @@
-// localStorage.clear();
 let maindiv = document.querySelector(".main");
 function localNotes(ky, val) {
     localStorage.setItem(ky, val);
@@ -9,22 +8,28 @@ function localNotes(ky, val) {
 document.querySelector("#addNote").addEventListener("click", () => {
     let key = document.getElementById("key").value;
     let value = document.getElementById("value").value;
-    document.getElementById("key").value='';
-    document.getElementById("value").value='';
-    localNotes(key, value);
+    document.getElementById("key").value = '';
+    document.getElementById("value").value = '';
+    if(key!=''&&value!=''&&key!=' '&&value!=' ' ){
+        document.getElementById("alert").hidden=true;
+        localNotes(key, value);
+    }else{
+        document.getElementById("alert").hidden=false;
+        alertTimer();
+    }
 })
-document.querySelector("#getNote").addEventListener('click',()=>{
-        let notez=localStorage;
-        notesDisplay(notez);
+document.querySelector("#getNote").addEventListener('click', () => {
+    let notez = localStorage;
+    notesDisplay(notez);
 })
 
 function notesDisplay(notes) {
-    let divx=document.querySelector(".notesAll");
-    let tg='';
-    for(i=0;i<notes.length;i++){
-        let key=localStorage.key(i)
-        let val=localStorage.getItem(key);
-       tg=tg+`
+    let divx = document.querySelector(".notesAll");
+    let tg = '';
+    for (i = 0; i < notes.length; i++) {
+        let key = localStorage.key(i)
+        let val = localStorage.getItem(key);
+        tg = tg + `
        <div class="card">
        <div id="headding">
         ${key}
@@ -36,12 +41,17 @@ function notesDisplay(notes) {
     </div>
        `
     }
-    divx.innerHTML=tg;
+    divx.innerHTML = tg;
 }
-document.querySelector(".notesAll").addEventListener('click',(details)=>{
-    let deletKey=details.target.value;
-    if(deletKey!=undefined){
+document.querySelector(".notesAll").addEventListener('click', (details) => {
+    let deletKey = details.target.value;
+    if (deletKey != undefined) {
         localStorage.removeItem(deletKey);
     }
     notesDisplay(localStorage);
 })
+function alertTimer(){
+    setTimeout(()=>{
+        document.getElementById('alert').hidden=true;
+    },5000)
+}
